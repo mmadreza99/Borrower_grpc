@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13proto/borrwor.proto\"0\n\x0f\x42orrowerRequest\x12\n\n\x02Id\x18\x01 \x01(\x05\x12\x11\n\tn_account\x18\x02 \x01(\x05\"#\n\x10\x42orrowerResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"7\n\x16\x42\x61nkReturnCheckRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\"*\n\x17\x42\x61nkReturnCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\";\n\x1a\x44\x65\x66\x65rredInstallmentRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\".\n\x1b\x44\x65\x66\x65rredInstallmentResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2\xd0\x01\n\x06\x42orrow\x12\x32\n\x0bRequestLoan\x12\x10.BorrowerRequest\x1a\x11.BorrowerResponse\x12\x41\n\x0cRequestCheck\x12\x17.BankReturnCheckRequest\x1a\x18.BankReturnCheckResponse\x12O\n\x12RequestInstallment\x12\x1b.DeferredInstallmentRequest\x1a\x1c.DeferredInstallmentResponseb\x06proto3'
+  serialized_pb=b'\n\x13proto/borrwor.proto\"0\n\x0f\x42orrowerRequest\x12\n\n\x02Id\x18\x01 \x01(\x05\x12\x11\n\tn_account\x18\x02 \x01(\x05\"#\n\x10\x42orrowerResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"7\n\x16\x42\x61nkReturnCheckRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\"*\n\x17\x42\x61nkReturnCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\x08\";\n\x1a\x44\x65\x66\x65rredInstallmentRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\".\n\x1b\x44\x65\x66\x65rredInstallmentResponse\x12\x0f\n\x07message\x18\x01 \x01(\x08\x32\xd0\x01\n\x06\x42orrow\x12\x32\n\x0bRequestLoan\x12\x10.BorrowerRequest\x1a\x11.BorrowerResponse\x12\x41\n\x0cRequestCheck\x12\x17.BankReturnCheckRequest\x1a\x18.BankReturnCheckResponse\x12O\n\x12RequestInstallment\x12\x1b.DeferredInstallmentRequest\x1a\x1c.DeferredInstallmentResponseb\x06proto3'
 )
 
 
@@ -145,8 +145,8 @@ _BANKRETURNCHECKRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='message', full_name='BankReturnCheckResponse.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -216,8 +216,8 @@ _DEFERREDINSTALLMENTRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='message', full_name='DeferredInstallmentResponse.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),

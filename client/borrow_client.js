@@ -8,8 +8,8 @@ function main() {
     );
     
     const BorrowerRequest = new message.BorrowerRequest();
-    BorrowerRequest.setId(0413142344066);
-    BorrowerRequest.setNAccount(03432442346322)
+    BorrowerRequest.setId(410669123);
+    BorrowerRequest.setNAccount(300869905)
     clinet.requestLoan(BorrowerRequest, function (err, response) {
         if (err) {
             console.log('this thing broke!', err);

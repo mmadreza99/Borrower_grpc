@@ -1,19 +1,33 @@
+from os import read
 import grpc
-import concurrent
 from concurrent import futures
 
-from proto.borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server, BorrowStub
+from proto.borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server
 from proto.borrwor_pb2 import  BankReturnCheckResponse
 
-# BankReturnCheckRequest(Id=id, n_account=n_account)
+
+def read_file(id, account):
+    with open('server2/list_return_check.txt', 'r') as f:
+        for i in f.readlines():
+            split = i.split(' ')
+            if int(split[0]) == id and int(split[1]) == account:
+                return split[2]
+        return 'NO'
+
 
 class BorrowServer(BorrowServicer):
 
     def RequestCheck(self, request, context):
-        print(f'in server to we got something. {request.Id} , {request.n_account}')
         respones = BankReturnCheckResponse()
-        respones.message = 'True'
+        result = read_file(request.Id, request.n_account)
+        print(f'in server to we got something. {request.Id}, {request.n_account}\
+            the result : {result}')
+        if result== 'YES':
+            respones.message = False  
+        elif result == 'NO':
+            respones.message = True
         return respones
+
 
 def main():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

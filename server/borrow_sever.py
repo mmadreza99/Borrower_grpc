@@ -1,11 +1,9 @@
 import grpc
-import concurrent
 from concurrent import futures
 
 from proto.borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server, BorrowStub
 from proto.borrwor_pb2 import BorrowerResponse, BankReturnCheckRequest, DeferredInstallmentRequest
 
-# BankReturnCheckRequest(Id=id, n_account=n_account)
 
 class BorrowServer(BorrowServicer):
     def request_server2(self, id, n_account):
@@ -27,11 +25,11 @@ class BorrowServer(BorrowServicer):
     def RequestLoan(self, request, context):
         s2 = self.request_server2(request.Id, request.n_account)
         s3 = self.request_server3(request.Id, request.n_account)
-        print(f'RequestLoan server 2 : {s2}\n RequestLoan server 3 : {s3}')
-        result = bool(s2==s3)
+        print(f'RequestLoan server2 return check : {s2.message}\nRequestLoan server3 installment: {s3.message}')
+        result = bool(s2.message==s3.message==True)
         respones = BorrowerResponse()
         print(result)
-        if result == '':
+        if result:
             respones.message = f'Yes'
             return respones
         else:
