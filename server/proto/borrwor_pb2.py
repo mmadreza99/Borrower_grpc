@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13proto/borrwor.proto\"0\n\x0f\x42orrowerRequest\x12\n\n\x02Id\x18\x01 \x01(\x05\x12\x11\n\tn_account\x18\x02 \x01(\x05\"#\n\x10\x42orrowerResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"7\n\x16\x42\x61nkReturnCheckRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\"*\n\x17\x42\x61nkReturnCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\";\n\x1a\x44\x65\x66\x65rredInstallmentRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\".\n\x1b\x44\x65\x66\x65rredInstallmentResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2<\n\x06\x42orrow\x12\x32\n\x0bRequestLoan\x12\x10.BorrowerRequest\x1a\x11.BorrowerResponseb\x06proto3'
+  serialized_pb=b'\n\x13proto/borrwor.proto\"0\n\x0f\x42orrowerRequest\x12\n\n\x02Id\x18\x01 \x01(\x05\x12\x11\n\tn_account\x18\x02 \x01(\x05\"#\n\x10\x42orrowerResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"7\n\x16\x42\x61nkReturnCheckRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\"*\n\x17\x42\x61nkReturnCheckResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\";\n\x1a\x44\x65\x66\x65rredInstallmentRequest\x12\n\n\x02Id\x18\x01 \x01(\x03\x12\x11\n\tn_account\x18\x02 \x01(\x03\".\n\x1b\x44\x65\x66\x65rredInstallmentResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2\xd0\x01\n\x06\x42orrow\x12\x32\n\x0bRequestLoan\x12\x10.BorrowerRequest\x1a\x11.BorrowerResponse\x12\x41\n\x0cRequestCheck\x12\x17.BankReturnCheckRequest\x1a\x18.BankReturnCheckResponse\x12O\n\x12RequestInstallment\x12\x1b.DeferredInstallmentRequest\x1a\x1c.DeferredInstallmentResponseb\x06proto3'
 )
 
 
@@ -296,8 +296,8 @@ _BORROW = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=320,
-  serialized_end=380,
+  serialized_start=321,
+  serialized_end=529,
   methods=[
   _descriptor.MethodDescriptor(
     name='RequestLoan',
@@ -306,6 +306,26 @@ _BORROW = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_BORROWERREQUEST,
     output_type=_BORROWERRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RequestCheck',
+    full_name='Borrow.RequestCheck',
+    index=1,
+    containing_service=None,
+    input_type=_BANKRETURNCHECKREQUEST,
+    output_type=_BANKRETURNCHECKRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RequestInstallment',
+    full_name='Borrow.RequestInstallment',
+    index=2,
+    containing_service=None,
+    input_type=_DEFERREDINSTALLMENTREQUEST,
+    output_type=_DEFERREDINSTALLMENTRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

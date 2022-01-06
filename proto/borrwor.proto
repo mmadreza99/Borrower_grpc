@@ -2,6 +2,9 @@ syntax = "proto3";
 
 service Borrow{
     rpc RequestLoan(BorrowerRequest) returns (BorrowerResponse);
+    rpc RequestCheck(BankReturnCheckRequest) returns (BankReturnCheckResponse);
+    rpc RequestInstallment(DeferredInstallmentRequest) returns (DeferredInstallmentResponse);
+
 }
 
 message BorrowerRequest {
@@ -19,7 +22,7 @@ message BankReturnCheckRequest {
 }
 
 message BankReturnCheckResponse {
-    string message = 1;
+    bool message = 1;
 }
 
 message DeferredInstallmentRequest {
@@ -28,5 +31,5 @@ message DeferredInstallmentRequest {
 }
 
 message DeferredInstallmentResponse {
-    string message = 1;
+    bool message = 1;
 }

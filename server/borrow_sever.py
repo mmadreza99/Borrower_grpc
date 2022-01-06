@@ -2,17 +2,42 @@ import grpc
 import concurrent
 from concurrent import futures
 
-from borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server
-from borrwor_pb2 import BorrowerResponse
- 
+from proto.borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server, BorrowStub
+from proto.borrwor_pb2 import BorrowerResponse, BankReturnCheckRequest, DeferredInstallmentRequest
+
+# BankReturnCheckRequest(Id=id, n_account=n_account)
 
 class BorrowServer(BorrowServicer):
+    def request_server2(self, id, n_account):
+        with grpc.insecure_channel('localhost:50505') as channel:
+            stub = BorrowStub(channel)
+            response = stub.RequestCheck(
+                BankReturnCheckRequest(Id=id, n_account=n_account)
+                )
+        return response
     
+    def request_server3(self, id, n_account):
+        with grpc.insecure_channel('localhost:50506') as channel:
+            stub = BorrowStub(channel)
+            response = stub.RequestInstallment(
+                DeferredInstallmentRequest(Id=id, n_account=n_account)
+                )
+        return response
+   
     def RequestLoan(self, request, context):
-        print(f'we got something. {request.Id}')
+        s2 = self.request_server2(request.Id, request.n_account)
+        s3 = self.request_server3(request.Id, request.n_account)
+        print(f'RequestLoan server 2 : {s2}\n RequestLoan server 3 : {s3}')
+        result = bool(s2==s3)
         respones = BorrowerResponse()
-        respones.message = f'this customer not loan'
-        return respones
+        print(result)
+        if result == '':
+            respones.message = f'Yes'
+            return respones
+        else:
+            respones.message = f'NO'
+            return respones
+
 
 def main():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
