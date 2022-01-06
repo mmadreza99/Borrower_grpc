@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+service Borrow{
+    rpc RequestLoan(BorrowerRequest) returns (BorrowerResponse);
+}
+
+message BorrowerRequest {
+    int32 Id = 1;
+    int32 n_account = 2;
+}
+
+message BorrowerResponse {
+    string message = 1;
+}
+
+message BankReturnCheckRequest {
+    int64 Id = 1;
+    int64 n_account = 2;
+}
+
+message BankReturnCheckResponse {
+    string message = 1;
+}
+
+message DeferredInstallmentRequest {
+    int64 Id = 1;
+    int64 n_account = 2;
+}
+
+message DeferredInstallmentResponse {
+    string message = 1;
+}
