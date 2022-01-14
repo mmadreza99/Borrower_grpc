@@ -1,4 +1,3 @@
-from os import read
 import grpc
 from concurrent import futures
 
@@ -7,7 +6,7 @@ from proto.borrwor_pb2 import  BankReturnCheckResponse
 
 
 def read_file(id, account):
-    with open('server2/list_return_check.txt', 'r') as f:
+    with open('list_return_check.txt', 'r') as f:
         for i in f.readlines():
             split = i.split(' ')
             if int(split[0]) == id and int(split[1]) == account:

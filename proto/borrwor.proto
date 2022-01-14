@@ -8,8 +8,8 @@ service Borrow{
 }
 
 message BorrowerRequest {
-    int32 Id = 1;
-    int32 n_account = 2;
+    int64 Id = 1;
+    int64 n_account = 2;
 }
 
 message BorrowerResponse {

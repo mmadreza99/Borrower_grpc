@@ -1,5 +1,4 @@
 import grpc
-import concurrent
 from concurrent import futures
 
 from proto.borrwor_pb2_grpc import BorrowServicer, add_BorrowServicer_to_server, BorrowStub
@@ -7,7 +6,7 @@ from proto.borrwor_pb2 import  DeferredInstallmentResponse
 
 
 def read_file(id, account):
-    with open('server3/list_deferet_installment.txt', 'r') as f:
+    with open('list_deferet_installment.txt', 'r') as f:
         for i in f.readlines():
             split = i.split(' ')
             if int(split[0]) == id and int(split[1]) == account:
