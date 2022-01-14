@@ -14,7 +14,7 @@ function main() {
         if (err) {
             console.log('this thing broke!', err);
         } else {
-            console.log('response from python : ', response);
+            console.log('response from python : ', response.getMessage());
         }
     })
 
