@@ -24,9 +24,9 @@ class BorrowServer(BorrowServicer):
             the result : {result}')
 
         if result== 'YES':
-            respones.message = False  
+            respones.message = True 
         elif result == 'NO':
-            respones.message = True
+            respones.message = False
         return respones
 
 

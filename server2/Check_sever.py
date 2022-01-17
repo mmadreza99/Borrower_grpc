@@ -22,9 +22,9 @@ class BorrowServer(BorrowServicer):
         print(f'in server to we got something. {request.Id}, {request.n_account}\
             the result : {result}')
         if result== 'YES':
-            respones.message = False  
+            respones.message = True  
         elif result == 'NO':
-            respones.message = True
+            respones.message = False
         return respones
 
 
